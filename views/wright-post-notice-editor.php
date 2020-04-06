@@ -1,0 +1,1 @@
+<textarea name="wright-post-notice-editor"></textarea>

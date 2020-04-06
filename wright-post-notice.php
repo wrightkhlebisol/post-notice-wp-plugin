@@ -16,10 +16,12 @@ if (!defined('WPINC')) {
 }
 
 require_once(plugin_dir_path(__FILE__) . 'class-wright-post-notice.php');
+require_once(plugin_dir_path(__FILE__) . 'class-wright-post-notice-editor.php');
 
 function wright_post_notice_start()
 {
-    $post_notice = new Wright_Post_Notice();
+    $post_editor = new Wright_Post_Notice_Editor();
+    $post_notice = new Wright_Post_Notice($post_editor);
     $post_notice->initialize();
 }
 

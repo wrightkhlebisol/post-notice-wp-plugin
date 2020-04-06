@@ -2,6 +2,11 @@
 
 class Wright_Post_Notice
 {
+    public function __construct(Wright_Post_Notice_Editor $editor)
+    {
+        $editor->initialize();
+    }
+
     public function initialize()
     {
         add_action('admin_enqueue_scripts', [$this, 'enqueue_styles']);
