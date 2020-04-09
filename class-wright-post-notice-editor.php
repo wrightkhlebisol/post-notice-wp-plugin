@@ -34,5 +34,6 @@ class Wright_Post_Notice_Editor
 
     public function user_can_save($post_id)
     {
+        $is_autosave = wp_is_post_autosave($post_id);
     }
 }
