@@ -30,10 +30,16 @@ class Wright_Post_Notice_Editor
         if (!$this->user_can_save($post_id)) {
             return;
         }
+
+        $post_notice = $_POST['wright-post-notice-editor'];
+        update_post_meta($post_id, 'wright-post-notice', $post_notice);
     }
 
     public function user_can_save($post_id)
     {
         $is_autosave = wp_is_post_autosave($post_id);
+        $is_revision = wp_is_post_revision($post_id);
+
+        return !($is_autosave || $is_revision);
     }
 }
