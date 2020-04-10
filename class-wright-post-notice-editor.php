@@ -5,7 +5,7 @@ class Wright_Post_Notice_Editor
     public function initialize()
     {
         add_action('add_meta_boxes', [$this, 'add_meta_box']);
-        add_action('save_post' . [$this, 'save_post_notice']);
+        add_action('save_post', [$this, 'save_post_notice']);
     }
 
     public function add_meta_box()
@@ -32,6 +32,7 @@ class Wright_Post_Notice_Editor
         }
 
         $post_notice = $_POST['wright-post-notice-editor'];
+        $post_notice = stripslashes(strip_tags($post_notice));
         update_post_meta($post_id, 'wright-post-notice', $post_notice);
     }
 
