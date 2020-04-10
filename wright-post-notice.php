@@ -17,11 +17,16 @@ if (!defined('WPINC')) {
 
 require_once(plugin_dir_path(__FILE__) . 'class-wright-post-notice.php');
 require_once(plugin_dir_path(__FILE__) . 'class-wright-post-notice-editor.php');
+require_once(plugin_dir_path(__FILE__) . 'class-wright-post-notice-display.php');
 
 function wright_post_notice_start()
 {
-    $post_editor = new Wright_Post_Notice_Editor();
-    $post_notice = new Wright_Post_Notice($post_editor);
+    if (is_admin()) {
+        $post_editor = new Wright_Post_Notice_Editor();
+        $post_notice = new Wright_Post_Notice($post_editor);
+    } else {
+        $post_notice = new Wright_Post_Notice_Display();
+    }
     $post_notice->initialize();
 }
 
