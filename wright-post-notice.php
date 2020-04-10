@@ -4,7 +4,7 @@
  Plugin Name: Wright Post Notice
  Plugin URI: https://onedotstores.com
  Description: Dispay a custom message above our post.
- Version: 0.1.0
+ Version: 0.2.0
  Author: Wright
  Author URI: https://onedotstores.com
  License: GPLv2 or later 
