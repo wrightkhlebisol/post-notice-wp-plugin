@@ -38,10 +38,8 @@ class Wright_Post_Notice_Editor
 
     public function user_can_save($post_id)
     {
-        $is_valid_nonce = (isset($_POST['wright-post-notice-nonce'])) && wp_verify_nonce(
-            $_POST['wright-post-notice-nonce'],
-            'tutsplus-post-notice-save'
-        );
+        $is_valid_nonce = (isset($_POST['wright-post-notice-nonce'])) && wp_verify_nonce($_POST['wright-post-notice-nonce'], 'wright-post-notice-save');
+
         $is_autosave = wp_is_post_autosave($post_id);
         $is_revision = wp_is_post_revision($post_id);
 
